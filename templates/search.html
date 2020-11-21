@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block content %}
+
+  <main class="mt-5 pt-4">
+    <div class="container dark-grey-text mt-5">
+
+      <!--Grid row-->
+      <div class="row wow fadeIn">
+
+        <!--Grid column-->
+        <div class="col-md-6 mb-4">
+
+           <h1>Results for "{{ name }}"</h1>
+
+<br/>
+<section class="text-center mb-4">
+
+        <div class="row wow fadeIn">
+
+          {% for item in products %}
+          <div class="col-lg-6 col-md-6 mb-4">
+
+            <div class="card">
+
+              <div class="view overlay">
+                <img src="{{ item.image.url }}" class="card-img-top">
+                <a href="{{ item.get_absolute_url }}">
+                  <div class="mask rgba-white-slight"></div>
+                </a>
+              </div>
+
+              <div class="card-body text-center">
+                <a href="" class="grey-text">
+                  <h5>{{ item.get_category_display }}</h5>
+                </a>
+                <h5>
+                  <strong>
+                    <a href="{{ item.get_absolute_url }}" class="dark-grey-text">{{ item.title }}
+                      <span class="badge badge-pill {{ item.get_label_display }}-color">NEW</span>
+                    </a>
+                  </strong>
+                </h5>
+
+                <h4 class="font-weight-bold blue-text">
+                  <strong>$
+                  {% if item.discount_price %}
+                  {{ item.discount_price }}
+                  {% else %}
+                  {{ item.price }}
+                  {% endif %}
+                  </strong>
+                </h4>
+
+              </div>
+
+            </div>
+
+          </div>
+          {% endfor %}
+        </div>
+
+      </section>
+
+    </div>
+      </div>
+    </div>
+  </main>
+{% endblock content %}
