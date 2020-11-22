@@ -1,5 +1,51 @@
 {% extends "base.html" %}
 {% block content %}
+    <div class ="container">
+      <!--Navbar-->
+      <nav class="navbar navbar-expand-lg navbar-dark mdb-color lighten-3 mt-3 mb-5">
+
+        <!-- Navbar brand -->
+        <span class="navbar-brand">Categories:</span>
+
+        <!-- Collapse button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+          aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Collapsible content -->
+        <div class="collapse navbar-collapse" id="basicExampleNav">
+
+          <!-- Links -->
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">All
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'core:categ1' %}">Shirts</a>  <!- TODO ->
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'core:categ2' %}">Sport wears</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'core:categ3' %}">Outwears</a>
+            </li>
+
+          </ul>
+          <!-- Links -->
+
+          <form  name="myform" method="GET" action="{% url 'core:search' %}">
+            <!--<div class="md-form my-0">-->
+                <input  type="text" name = 'search' placeholder="Search" />
+            <!--</div>-->
+          </form>
+        </div>
+        <!-- Collapsible content -->
+
+      </nav>
+      <!--/.Navbar-->
 
   <main class="mt-5 pt-4">
 
